@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, Markup, abort
 import random
 from io import BytesIO
 from urllib import request
@@ -37,6 +37,7 @@ def test():
 
 if __name__ == '__main__':
     app.run()
+
 
 
 
