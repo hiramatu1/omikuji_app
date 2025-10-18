@@ -12,7 +12,7 @@ omikuji_results = ['大吉', '中吉', '小吉', '吉', '末吉', '凶', '大凶
 # おみくじを引く画面へ遷移
 @app.route('/')
 def index():
-    print("hello1")
+    print("hello2")
     return render_template('index.html')
 
 # おみくじの結果をランダムで選択し、結果画面へ遷移
@@ -24,6 +24,7 @@ def omikuji():
 if __name__ == '__main__':
 
     app.run(debug=True)
+
 
 
 
