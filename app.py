@@ -26,9 +26,11 @@ def index():
 def test():
     try:
         if request.method == 'GET':
-            return request.args.get('query', '')
+            print("get1")
+            return render_template('index.html')
         elif request.method == 'POST':
-            return request.form['query']
+            print("post1")
+            return render_template('index.html')
         else:
             return abort(400)
     except Exception as e:
@@ -37,6 +39,7 @@ def test():
 
 if __name__ == '__main__':
     app.run()
+
 
 
 
