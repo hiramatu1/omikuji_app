@@ -29,6 +29,7 @@
 </head>
 <body>
     <div class="container">
+            <h1 class="daikichi">🌸 結果は… {{ query }} です！ 🌸</h1>
         {% if result == '大吉' %}
             <h1 class="daikichi">🌸 結果は… {{ result }} です！ 🌸</h1>
         {% else %}
@@ -37,4 +38,5 @@
         <a href="{{ url_for('index') }}">もう一度引く</a>
     </div>
 </body>
+
 </html>
