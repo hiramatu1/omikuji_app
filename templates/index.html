@@ -1,39 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>おみくじ</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
-            background-color: white;
-        }
-        .container {
-            text-align: center;
-        }
-    </style>
-</head>
+<html>
 <body>
-    <div class="container">
-        <h1>おみくじを引こう！</h1>
-        <form action="{ url_for('test') }}">
-            <p><label>test2: </label>
-            <input type="text" name="query" value="default">
-            <button type="submit" formmethod="get">GET1</button>
-            <button type="submit" formmethod="post">POST1</button></p>
-        </form>
-    </div>
+<h1>入力したものを表示させる</h1>
+<form method="GET" action="">
+  <label for="item">適当になんか入力してみて</label>
+  <input id="item" name="item">
+  <input type="submit" value="Submit">
+</form>
+<p>{{ item }}</p>
+<!-- 受け取った情報をflaskのGETで返す -->
 </body>
-
 </html>
-
-
-
-
-
-
