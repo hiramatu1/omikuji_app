@@ -30,6 +30,20 @@ if __name__ == '__main__':
 
     app.run(debug=True)
 
+#GET,POST TEST
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    try:
+        if request.method == 'GET':
+            return request.args.get('query', '')
+        elif request.method == 'POST':
+            return request.form['query']
+        else:
+            return abort(400)
+    except Exception as e:
+        return str(e)
+
+
 
 
 
