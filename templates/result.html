@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>おみくじの結果</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: white;
+        }
+        .container {
+            text-align: center;
+        }
+        .daikichi {
+            font-size: 2em;
+            color: #e91e63;
+            animation: sparkle 1s infinite alternate;
+        }
+        @keyframes sparkle {
+            from { text-shadow: 0 0 5px #e91e63; }
+            to { text-shadow: 0 0 20px #e91e63; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if result == '大吉' %}
+            <h1 class="daikichi">🌸 結果は… {{ result }} です！ 🌸</h1>
+        {% else %}
+            <h1>結果は… {{ result }} です！</h1>
+        {% endif %}
+        <a href="{{ url_for('index') }}">もう一度引く</a>
+    </div>
+</body>
+</html>
