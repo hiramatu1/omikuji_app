@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import random
 from io import BytesIO
-from urllib import request
+from urllib import request as librequest
 from pdfminer.high_level import extract_text
 
 app = Flask(__name__)
@@ -57,6 +57,7 @@ def sample_form():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
