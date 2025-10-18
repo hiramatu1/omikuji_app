@@ -3,46 +3,17 @@ import random
 from io import BytesIO
 from urllib import request
 from pdfminer.high_level import extract_text
-    
-app = Flask(__name__)
+import requests
 
-omikuji_results = ['大吉', '中吉', '小吉', '吉', '末吉', '凶', '大凶']
 
-# おみくじを引く画面へ遷移
-@app.route('/')
-def index():
-    html = '''
-    <form action="/test">
-        <p><label>test: </label>
-        <input type="text" name="query" value="default">
-        <button type="submit" formmethod="get">GET</button>
-        <button type="submit" formmethod="post">POST</button></p>
-    </form>
-    '''
+@app.route('/', methods=['GET'])
+def Hello():
     return render_template('index.html')
 
-
-@app.route('/test', methods=['GET', 'POST'])
-def test():
-    try:
-        if request.method == 'GET':
-            print("get1")
-            return render_template('index.html')
-        elif request.method == 'POST':
-            print("post1")
-            return render_template('index.html')
-        else:
-            return abort(400)
-    except Exception as e:
-        return str(e)
-
-
-if __name__ == '__main__':
-    app.run()
-
-
-
-
+@app.route('/', methods=['GET'])
+def view():
+    input_data = request.args.get('item')
+    return render_template('index.html', item = input_data)
 
 
 
