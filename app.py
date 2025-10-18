@@ -36,33 +36,26 @@ def omikuji():
     except Exception as e:
         return str(e)    
 
-@app.route('/test', methods=['GET', 'POST'])
-def test():
+@app.route('/jpxdata', methods=['GET', 'POST'])
+def jpxdata():
     try:
         if request.method == 'GET':
-            print("1")
-            input_data = request.args.get('query')
-            print(input_data)
-            return request.args.get('query', '')
+            url = request.args.get('query')
+            with librequest.urlopen(url) as res:
+                f = BytesIO(res.read())
+                text = extract_text(f)
+                
+            return render_template('result.html', jpx_pdfdata=text)
         elif request.method == 'POST':
-            print("2")
-            return request.form['query']
+            return render_template('result.html', jpx_pdfdata="POST")
         else:
             return abort(400)
     except Exception as e:
         return str(e)
 
-@app.route('/sampleform', methods=['GET', 'POST'])
-def sample_form():
-    if request.method == 'GET':
-        return render_template('testapp/sampleform.html')
-    if request.method == 'POST':
-        print('POSTデータ受け取ったので処理します。')
-        req1 = request.form['data1']
-        return f'POST受け取ったよ: {req1}'
-
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
