@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>おみくじ</title>
+    <title>JPX需給</title>
     <style>
         body {
             display: flex;
@@ -20,9 +20,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>おみくじを引こう！</h1>
-        <form action="{{ url_for('omikuji') }}">
-            <button type="submit">おみくじを引く</button>
+        <h1>JPX需給URL</h1>
+        <form action="{{ url_for('jpxdata') }}">
             <input type="text" name="query" value="default">
             <button type="submit" formmethod="get">GET</button>
             <button type="submit" formmethod="post">POST</button></p>
@@ -30,5 +29,6 @@
     </div>
 </body>
 </html>
+
 
 
