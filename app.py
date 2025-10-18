@@ -35,13 +35,18 @@ if __name__ == '__main__':
 def test():
     try:
         if request.method == 'GET':
+            print("get1")
             return request.args.get('query', '')
         elif request.method == 'POST':
+            print("post1")
             return request.form['query']
         else:
+            print("else1")
             return abort(400)
     except Exception as e:
+        print("e")
         return str(e)
+
 
 
 
