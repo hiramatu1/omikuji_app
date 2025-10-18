@@ -11,7 +11,7 @@ omikuji_results = ['大吉', '中吉', '小吉', '吉', '末吉', '凶', '大凶
 # おみくじを引く画面へ遷移
 @app.route('/')
 def index():
-    url = "https://www.jitec.ipa.go.jp/1_00topic/topic_20071225_shinseido_4.pdf"
+    url = "https://www.hcs.co.jp/news/docs/test.pdf"
     
     with request.urlopen(url) as res:
         f = BytesIO(res.read())
@@ -29,6 +29,7 @@ def omikuji():
 if __name__ == '__main__':
 
     app.run(debug=True)
+
 
 
 
