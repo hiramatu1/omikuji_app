@@ -27,7 +27,7 @@ def omikuji():
                 print(text[:300])
             print("hello2")
     
-            return render_template('result.html', query=input_data,txt=text)
+            return render_template('result.html', query=input_data)
         elif request.method == 'POST':
             print("2")
             return request.form['query']
@@ -63,6 +63,7 @@ def sample_form():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
