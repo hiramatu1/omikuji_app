@@ -31,8 +31,13 @@ def test():
             return abort(400)
     except Exception as e:
         return str(e)
-        
+
+@app.route('/sampleform')
+def sample_form():
+    return render_template('sampleform.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
