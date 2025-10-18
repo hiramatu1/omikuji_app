@@ -40,6 +40,11 @@ def omikuji():
 def jpxdata():
     try:
         if request.method == 'GET':
+            """URLはGoogleDriveのファイルなら共有設定でURLをしっている者にして
+            https://drive.google.com/uc?id={file_id}
+            でいける
+            例：https://drive.google.com/uc?id=1PoxeuCHkAwjJtHIrLlSiKKApiGgb0ILQ
+            """
             url = request.args.get('query')
             with librequest.urlopen(url) as res:
                 f = BytesIO(res.read())
@@ -55,6 +60,7 @@ def jpxdata():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
