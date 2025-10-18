@@ -29,9 +29,10 @@
 </head>
 <body>
     <div class="container">
-            <h1 class="daikichi">🌸 結果は… {{ query }} です！ 🌸</h1>
+            <h1 class="daikichi">🌸 結果は1… {{ query }} です！ 🌸</h1>
+            <h1 class="daikichi">🌸 結果は2… {{ txt }} です！ 🌸</h1>
         {% if result == '大吉' %}
-            <h1 class="daikichi">🌸 結果は… {{ result }} です！ 🌸</h1>
+            <h1 class="daikichi">🌸 結果は3… {{ result }} です！ 🌸</h1>
         {% else %}
             <h1>結果は… {{ result }} です！</h1>
         {% endif %}
@@ -40,3 +41,4 @@
 </body>
 
 </html>
+
