@@ -11,10 +11,21 @@ def index():
     return render_template('index.html')
 
 # おみくじの結果をランダムで選択し、結果画面へ遷移
-@app.route('/omikuji')
+@app.route('/omikuji', methods=['GET', 'POST'])
 def omikuji():
-    result = random.choice(omikuji_results)
-    return render_template('result.html', result=result)
+    try:
+        if request.method == 'GET':
+            print("1")
+            input_data = request.args.get('query')
+            print(input_data)
+            return render_template('result.html', query=input_data)
+        elif request.method == 'POST':
+            print("2")
+            return request.form['query']
+        else:
+            return abort(400)
+    except Exception as e:
+        return str(e)    
 
 @app.route('/test', methods=['GET', 'POST'])
 def test():
@@ -43,6 +54,7 @@ def sample_form():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
