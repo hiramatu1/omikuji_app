@@ -24,13 +24,23 @@
         <form action="{{ url_for('omikuji') }}">
             <button type="submit">おみくじを引く3</button>
         </form>
-        <input type="text" name="query" value="default">
-        <button type="submit" formmethod="get">GET</button>
-        <button type="submit" formmethod="post">POST</button></p>
+        <form action="/test">
+            <p><label>test: </label>
+            <input type="text" name="query" value="default">
+            <button type="submit" formmethod="get">GET</button>
+            <button type="submit" formmethod="post">POST</button></p>
+        </form>
+        <form action="{ url_for('test') }}">
+            <p><label>test2: </label>
+            <input type="text" name="query" value="default">
+            <button type="submit" formmethod="get">GET</button>
+            <button type="submit" formmethod="post">POST</button></p>
+        </form>
     </div>
 </body>
 
 </html>
+
 
 
 
