@@ -32,12 +32,18 @@ def test():
     except Exception as e:
         return str(e)
 
-@app.route('/sampleform')
+@app.route('/sampleform', methods=['GET', 'POST'])
 def sample_form():
-    return render_template('sampleform.html')
+    if request.method == 'GET':
+        return render_template('testapp/sampleform.html')
+    if request.method == 'POST':
+        print('POSTデータ受け取ったので処理します。')
+        req1 = request.form['data1']
+        return f'POST受け取ったよ: {req1}'
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
