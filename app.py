@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Markup, abort
+from flask import Flask, render_template
 import random
 from io import BytesIO
 from urllib import request
@@ -19,7 +19,7 @@ def index():
         <button type="submit" formmethod="post">POST</button></p>
     </form>
     '''
-    return Markup(html)
+    return render_template('index.html')
 
 
 @app.route('/test', methods=['GET', 'POST'])
@@ -37,6 +37,7 @@ def test():
 
 if __name__ == '__main__':
     app.run()
+
 
 
 
