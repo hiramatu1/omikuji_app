@@ -3,5 +3,3 @@ Flask
 gunicorn
 
 pdfminer.six
-
-urllib
