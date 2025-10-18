@@ -20,8 +20,12 @@ def omikuji():
 def test():
     try:
         if request.method == 'GET':
+            print("1")
+            input_data = request.args.get('query')
+            print(input_data)
             return request.args.get('query', '')
         elif request.method == 'POST':
+            print("2")
             return request.form['query']
         else:
             return abort(400)
@@ -30,4 +34,5 @@ def test():
         
 if __name__ == '__main__':
     app.run(debug=True)
+
 
