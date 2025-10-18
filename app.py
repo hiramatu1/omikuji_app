@@ -18,10 +18,16 @@ def index():
 def omikuji():
     try:
         if request.method == 'GET':
-            print("1")
             input_data = request.args.get('query')
-            print(input_data)
-            return render_template('result.html', query=input_data)
+
+            url = "https://www.hcs.co.jp/news/docs/test.pdf"
+            with librequest.urlopen(url) as res:
+                f = BytesIO(res.read())
+                text = extract_text(f)
+                print(text[:300])
+            print("hello2")
+    
+            return render_template('result.html', query=input_data,txt=text)
         elif request.method == 'POST':
             print("2")
             return request.form['query']
@@ -57,6 +63,7 @@ def sample_form():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
