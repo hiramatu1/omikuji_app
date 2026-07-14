@@ -43,7 +43,7 @@ def jpxdata():
             """URLはGoogleDriveのファイルなら共有設定でURLをしっている者にして
             https://drive.google.com/uc?id={file_id}
             でいける
-            例：https://drive.google.com/uc?id=1PoxeuCHkAwjJtHIrLlSiKKApiGgb0ILQ
+            
             """
             url = request.args.get('query')
             with librequest.urlopen(url) as res:
